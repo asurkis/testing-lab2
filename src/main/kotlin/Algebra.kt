@@ -54,76 +54,19 @@ class Algebra(val epsilon: Double) {
     // - ((((csc(x) * (csc(x) - cos(x))) + sin(x)) * ((cos(x) - (cos(x) ^ 2)) +
     // + ((csc(x) / (csc(x) * sec(x))) ^ 3))) * (csc(x) ^ 3)))
     //x > 0 : (((((log_2(x) / ln(x)) - log_5(x)) ^ 3) + ln(x)) / (log_2(x) / log_10(x)))
-    fun superFun(x: Double, epsilon: Double): Double {
+    fun superFun(x: Double): Double {
         if (x <= 0) {
             return (
-                    (
-                            (
-                                    (
-                                            (
-                                                    (
-                                                            (
-                                                                    (
-                                                                            (
-                                                                                    sec(x) + sec(x)
-                                                                                    ) - tan(x)
-                                                                            ) + cos(x)
-                                                                    ) - tan(x)
-                                                            ).pow(2)
-                                                    ) + sec(x)
-                                            ) + (
-                                            tan(x) + (
-                                                    (
-                                                            (
-                                                                    csc(x) + (
-                                                                            sec(x) / tan(x)
-                                                                            )
-                                                                    ) / csc(x)
-                                                            ) + tan(x)
-                                                    )
-                                            )
-                                    ) / (
-                                    csc(x).pow(2)
-                                    )
-                            ) - (
-                            (
-                                    (
-                                            (
-                                                    csc(x) * (
-                                                            csc(x) - cos(x)
-                                                            )
-                                                    ) + sin(x)
-                                            ) * (
-                                            (
-                                                    cos(x) - (
-                                                            cos(x).pow(2)
-                                                            )
-                                                    ) + (
-                                                    (
-                                                            csc(x) / (
-                                                                    csc(x) * sec(x)
-                                                                    )
-                                                            ).pow(3)
-                                                    )
-                                            )
-                                    ) * (
-                                    csc(x).pow(3)
-                                    )
-                            )
+                    ((
+                            ((((((sec(x) + sec(x)) - tan(x)) + cos(x)) - tan(x)).pow(2)) + sec(x))
+                                    + (tan(x) + (((csc(x) + (sec(x) / tan(x))) / csc(x)) + tan(x)))
+                            ) / (csc(x).pow(2))) - ((
+                            ((csc(x) * (csc(x) - cos(x))) + sin(x))
+                                    * ((cos(x) - (cos(x).pow(2))) + ((csc(x) / (csc(x) * sec(x))).pow(3)))
+                            ) * (csc(x).pow(3)))
                     )
         } else {
-            return (
-                    (
-                            (
-                                    (
-                                            (
-                                                    log_2(x) / ln(x)
-                                                    ) - log_5(x)
-                                            ).pow(3)) + ln(x)
-                            ) / (
-                            log_2(x) / log_10(x)
-                            )
-                    )
+            return (((((log_2(x) / ln(x)) - log_5(x)).pow(3)) + ln(x)) / (log_2(x) / log_10(x)))
         }
     }
 }
