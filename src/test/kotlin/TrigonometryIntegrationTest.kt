@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.ValueSource
 import org.mockito.Mockito
 import kotlin.math.PI
 import kotlin.math.abs
+import kotlin.math.max
 
 class TrigonometryIntegrationTest {
     @ParameterizedTest
@@ -310,7 +311,7 @@ class TrigonometryIntegrationTest {
     fun secTestMock(x: Double, cosValue: Double, expected: Double) {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.cos(x)).thenReturn(cosValue)
-        Assertions.assertEquals(expected, spy.sec(x), 0.02)
+        Assertions.assertEquals(expected, spy.sec(x), 0.02 * max(1.0, abs(expected)))
     }
 
     @ParameterizedTest
@@ -474,7 +475,7 @@ class TrigonometryIntegrationTest {
     fun cscTestMock(x: Double, sinValue: Double, expected: Double) {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.sin(x)).thenReturn(sinValue)
-        Assertions.assertEquals(expected, spy.csc(x), 0.02)
+        Assertions.assertEquals(expected, spy.csc(x), 0.02 * max(1.0, abs(expected)))
     }
 
     @ParameterizedTest
@@ -641,7 +642,7 @@ class TrigonometryIntegrationTest {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.cos(x)).thenReturn(cosValue)
         Mockito.`when`(spy.sin(x)).thenReturn(sinValue)
-        Assertions.assertEquals(expected, spy.tan(x), 0.02)
+        Assertions.assertEquals(expected, spy.tan(x), 0.02 * max(1.0, abs(expected)))
     }
 
     @ParameterizedTest

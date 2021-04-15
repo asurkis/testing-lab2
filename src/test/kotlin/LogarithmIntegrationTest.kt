@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import org.mockito.Mockito
+import kotlin.math.abs
+import kotlin.math.max
 
 class LogarithmIntegrationTest {
     @ParameterizedTest
@@ -109,7 +111,7 @@ class LogarithmIntegrationTest {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.ln(x)).thenReturn(lnx)
         Mockito.`when`(spy.ln(base)).thenReturn(lnBase)
-        Assertions.assertEquals(expected, spy.log(x, base), 0.02)
+        Assertions.assertEquals(expected, spy.log(x, base), 0.02 * max(1.0, abs(expected)))
     }
 
     @ParameterizedTest
@@ -153,7 +155,7 @@ class LogarithmIntegrationTest {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.ln(x)).thenReturn(lnx)
         Mockito.`when`(spy.ln(2.0)).thenReturn(0.693147180559945)
-        Assertions.assertEquals(expected, spy.log_2(x), 0.02)
+        Assertions.assertEquals(expected, spy.log_2(x), 0.02 * max(1.0, abs(expected)))
     }
 
     @ParameterizedTest
@@ -197,7 +199,7 @@ class LogarithmIntegrationTest {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.ln(x)).thenReturn(lnx)
         Mockito.`when`(spy.ln(5.0)).thenReturn(1.6094379124341)
-        Assertions.assertEquals(expected, spy.log_5(x), 0.02)
+        Assertions.assertEquals(expected, spy.log_5(x), 0.02 * max(1.0, abs(expected)))
     }
 
     @ParameterizedTest
@@ -241,6 +243,6 @@ class LogarithmIntegrationTest {
         val spy = Mockito.spy(Algebra(0.0))
         Mockito.`when`(spy.ln(x)).thenReturn(lnx)
         Mockito.`when`(spy.ln(10.0)).thenReturn(2.30258509299405)
-        Assertions.assertEquals(expected, spy.log_10(x), 0.02)
+        Assertions.assertEquals(expected, spy.log_10(x), 0.02 * max(1.0, abs(expected)))
     }
 }

@@ -61,7 +61,9 @@ x > 0 : (((((log_2(x) / ln(x)) - log_5(x)) ^ 3) + ln(x)) / (log_2(x) / log_10(x)
 x <= 0 : (((((((((sec(x) + sec(x)) - tan(x)) + cos(x)) - tan(x)) ^ 2) + sec(x)) + (tan(x) + (((csc(x) + (sec(x) / tan(x))) / csc(x)) + tan(x)))) / (csc(x) ^ 2)) - ((((csc(x) * (csc(x) - cos(x))) + sin(x)) * ((cos(x) - (cos(x) ^ 2)) + ((csc(x) / (csc(x) * sec(x))) ^ 3))) * (csc(x) ^ 3)))
 x > 0 : (((((log_2(x) / ln(x)) - log_5(x)) ^ 3) + ln(x)) / (log_2(x) / log_10(x)))
 ```
-                                              
+```
+(((((log(A102;2) / ln(A102)) - log(A102;5)) ^ 3) + ln(A102)) / (log(A102;2) / log(A102;10)))
+```                                              
 | Функция | Область определения |
 | --- | --- |
 | cos(x) | R |
