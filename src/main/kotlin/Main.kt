@@ -20,7 +20,7 @@ fun main() {
         it.print(", log_10(x)")
         it.println()
 
-        for (i in -100..100) {
+        for (i in -1000..1000) {
             val x = 0.1 * i
             it.print("$x")
             it.print(", ${algebra.superFun(x)}")
