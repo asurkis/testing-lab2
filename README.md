@@ -61,3 +61,14 @@ x > 0 : (((((log_2(x) / ln(x)) - log_5(x)) ^ 3) + ln(x)) / (log_2(x) / log_10(x)
 x <= 0 : (((((((((sec(x) + sec(x)) - tan(x)) + cos(x)) - tan(x)) ^ 2) + sec(x)) + (tan(x) + (((csc(x) + (sec(x) / tan(x))) / csc(x)) + tan(x)))) / (csc(x) ^ 2)) - ((((csc(x) * (csc(x) - cos(x))) + sin(x)) * ((cos(x) - (cos(x) ^ 2)) + ((csc(x) / (csc(x) * sec(x))) ^ 3))) * (csc(x) ^ 3)))
 x > 0 : (((((log_2(x) / ln(x)) - log_5(x)) ^ 3) + ln(x)) / (log_2(x) / log_10(x)))
 ```
+                                              
+| Функция | Область определения |
+| --- | --- |
+| cos(x) | R |
+| sin(x) | R |
+| tan(x) | R &minus; { &pi; &div; 2 + &pi; * k; k in Z } |
+| sec(x) | R &minus; { &pi; &div; 2 + &pi; * k; k in Z } |
+| csc(x) | R &minus; { &pi; * k; k in Z } |
+| ln(x) | { x; x in R, x > 0 } |
+| log_b(x) | { (x; b); (x; b) in R^2, x > 0, b > 0, b != 1 } |
+| f(x) | R &minus; { &pi; * k &div; 2; k in Z } |

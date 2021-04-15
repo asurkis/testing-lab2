@@ -10,8 +10,8 @@ fun Double.pow(n: Int): Double {
     return t * t * if (n % 2 == 0) 1.0 else this
 }
 
-class Algebra(val epsilon: Double) {
-    fun cos(x: Double): Double {
+open class Algebra(val epsilon: Double) {
+    open fun cos(x: Double): Double {
         val sqx = x * x
         var result = 1.0
         var k = 1.0
@@ -25,7 +25,8 @@ class Algebra(val epsilon: Double) {
         return result
     }
 
-    fun ln(x: Double): Double {
+    open fun ln(x: Double): Double {
+        if (x <= 0) return Double.NaN
         val z = (x - 1) / (x + 1)
         val sqr = z * z
         var result = z
@@ -37,17 +38,17 @@ class Algebra(val epsilon: Double) {
             val old = result
             result += k / i
         } while (!doubleEquals(result, old, epsilon))
-        return 0.0
+        return 2.0 * result
     }
 
-    fun sin(x: Double) = cos(PI - x)
-    fun sec(x: Double) = 1.0 / sin(x)
-    fun csc(x: Double) = 1.0 / cos(x)
-    fun tan(x: Double) = sin(x) / cos(x)
-    fun log(x: Double, base: Double) = ln(x) / ln(base)
-    fun log_2(x: Double) = log(x, 2.0)
-    fun log_5(x: Double) = log(x, 5.0)
-    fun log_10(x: Double) = log(x, 10.0)
+    open fun sin(x: Double) = cos(0.5 * PI - x)
+    open fun sec(x: Double) = 1.0 / cos(x)
+    open fun csc(x: Double) = 1.0 / sin(x)
+    open fun tan(x: Double) = sin(x) / cos(x)
+    open fun log(x: Double, base: Double) = ln(x) / ln(base)
+    open fun log_2(x: Double) = log(x, 2.0)
+    open fun log_5(x: Double) = log(x, 5.0)
+    open fun log_10(x: Double) = log(x, 10.0)
 
     //x <= 0 : (((((((((sec(x) + sec(x)) - tan(x)) + cos(x)) - tan(x)) ^ 2) + sec(x)) + (tan(x) + (((csc(x) +
     // + (sec(x) / tan(x))) / csc(x)) + tan(x)))) / (csc(x) ^ 2)) - ((((csc(x) * (csc(x) - cos(x))) + sin(x)) *
