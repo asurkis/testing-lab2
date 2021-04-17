@@ -159,7 +159,7 @@ class TrigonometryIntegrationTest {
     )
     fun sinTestMock(x: Double, expected: Double) {
         val spy = Mockito.spy(Algebra(0.0))
-        Mockito.`when`(spy.cos(0.5 * PI - x)).thenReturn(expected)
+        Mockito.`when`(spy.cos(Mockito.anyDouble())).thenReturn(expected)
         Assertions.assertEquals(expected, spy.sin(x))
     }
 
